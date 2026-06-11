@@ -55,7 +55,6 @@ The key idea is not that the output is a literal historical TQQQ tape. It is a c
 - Processed CSVs are synthetic and should be treated as model output, not as observed market history.
 - The generated series is useful for strategy research, especially when you want to evaluate behavior through periods that TQQQ did not yet exist.
 - The fee-analysis scripts are meant to help estimate a reasonable fee assumption for backfilling. They do not prove the exact issuer fee or all frictions in live trading.
-- Negative solved drag in a year means the 3x model plus the chosen fee assumption still underperformed the actual TQQQ path over that period. That can happen because leveraged ETFs are path dependent.
 
 ## Project Layout
 
