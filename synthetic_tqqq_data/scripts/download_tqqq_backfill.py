@@ -13,12 +13,12 @@ class Symbols:
     leverage: str = "TQQQ"
     benchmark: str = "^NDX"
 
-
-OUTPUT_DIR = Path("synthetic_tqqq_data/data")
 ANNUAL_FEE = 10.0
 TRADING_DAYS_PER_YEAR = 252
 START_DATE = "1985-10-01"
 END_DATE = "2026-01-01"
+PACKAGE_DIR = Path(__file__).resolve().parents[1]
+OUTPUT_DIR = PACKAGE_DIR / "data"
 
 
 def build_processed_filename(annual_fee: float) -> str:

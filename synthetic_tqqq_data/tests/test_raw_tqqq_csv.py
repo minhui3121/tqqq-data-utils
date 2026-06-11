@@ -7,7 +7,8 @@ import unittest
 import pandas as pd
 
 
-RAW_CSV_PATH = Path("data/raw/tqqq_yahoo.csv")
+BASE_DIR = Path(__file__).resolve().parents[1]
+RAW_CSV_PATH = BASE_DIR / "data" / "raw" / "tqqq_yahoo.csv"
 
 
 def round_half_up(value: float, places: int = 2) -> float:

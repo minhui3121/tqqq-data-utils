@@ -7,10 +7,11 @@ import unittest
 import pandas as pd
 
 
+BASE_DIR = Path(__file__).resolve().parents[1]
 PROCESSED_FILES = {
-    "0%": Path("data/processed/tqqq_backfilled_0.0%.csv"),
-    "5%": Path("data/processed/tqqq_backfilled_5.0%.csv"),
-    "10%": Path("data/processed/tqqq_backfilled_10.0%.csv"),
+    "0%": BASE_DIR / "data" / "processed" / "tqqq_backfilled_0.0%.csv",
+    "5%": BASE_DIR / "data" / "processed" / "tqqq_backfilled_5.0%.csv",
+    "10%": BASE_DIR / "data" / "processed" / "tqqq_backfilled_10.0%.csv",
 }
 
 COMMON_ROWS = {
