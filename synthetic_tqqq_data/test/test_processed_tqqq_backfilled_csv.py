@@ -8,9 +8,9 @@ import pandas as pd
 
 
 PROCESSED_FILES = {
-    "0%": Path("data/processed/tqqq_backfilled_0%.csv"),
-    "5%": Path("data/processed/tqqq_backfilled_5%.csv"),
-    "10%": Path("data/processed/tqqq_backfilled_10%.csv"),
+    "0%": Path("data/processed/tqqq_backfilled_0.0%.csv"),
+    "5%": Path("data/processed/tqqq_backfilled_5.0%.csv"),
+    "10%": Path("data/processed/tqqq_backfilled_10.0%.csv"),
 }
 
 COMMON_ROWS = {

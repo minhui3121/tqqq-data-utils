@@ -14,11 +14,15 @@ class Symbols:
     benchmark: str = "^NDX"
 
 
-OUTPUT_DIR = Path("data")
+OUTPUT_DIR = Path("synthetic_tqqq_data/data")
 ANNUAL_FEE = 10.0
 TRADING_DAYS_PER_YEAR = 252
 START_DATE = "1985-10-01"
 END_DATE = "2026-01-01"
+
+
+def build_processed_filename(annual_fee: float) -> str:
+    return f"tqqq_backfilled_{annual_fee}%.csv"
 
 
 def annual_fee_to_daily_fee(annual_fee: float, trading_days_per_year: int = TRADING_DAYS_PER_YEAR) -> float:
@@ -161,7 +165,7 @@ def write_csvs(output_dir: Path, benchmark: pd.DataFrame, leverage: pd.DataFrame
     raw_columns = ["Open", "Close"]
     benchmark.reindex(columns=raw_columns).to_csv(raw_dir / "nasdaq_100_yahoo.csv", index_label="date")
     leverage.reindex(columns=raw_columns).to_csv(raw_dir / "tqqq_yahoo.csv", index_label="date")
-    combined.to_csv(processed_dir / "tqqq_backfilled.csv", index=False)
+    combined.to_csv(processed_dir / build_processed_filename(ANNUAL_FEE), index=False)
 
 
 def main() -> None:
@@ -176,7 +180,7 @@ def main() -> None:
     latest = combined.iloc[-1]["date"]
     print(f"Saved raw benchmark data to {OUTPUT_DIR / 'raw' / 'nasdaq_100_yahoo.csv'}")
     print(f"Saved raw TQQQ data to {OUTPUT_DIR / 'raw' / 'tqqq_yahoo.csv'}")
-    print(f"Saved backfilled series to {OUTPUT_DIR / 'processed' / 'tqqq_backfilled.csv'}")
+    print(f"Saved backfilled series to {OUTPUT_DIR / 'processed' / build_processed_filename(ANNUAL_FEE)}")
     print(f"Backfilled series covers {earliest} through {latest}.")
 
 
